@@ -1,11 +1,21 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-name: ${artifactId}
-main: ${package}.${artifactId}
+name: plugin1
+main: edu.unca.ajrobine.bukkitplugin
 version: 0.1
 
 commands:
-   command:
-      description: A Command
-      usage: /<command> 
+   plugin1:
+      description: A Command that makes a cake in Minecraft
+      usage: /<plugin1> command
+      permission: plugin1.*
+permissions:
+   plugin1.*:
+     description: permissions of all plugin1 related plugins
+     default: true
+     children:
+        plugin1.message:
+           description: gives permission to set the sample message using the sample command
+        plugin1.cake:
+           description: give the player a block of cake    
